@@ -1,0 +1,150 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="PSP_TierRequirementController">
+    <aura:handler name="cancelEvent" event="c:backEvent" action="{!c.hideOutofScopeData}"/>
+    <aura:handler name="backFunctionEvent" event="c:backScopeEvent" action="{!c.hideInScopeData}"/>
+    <aura:attribute name="showTier1" type="boolean" default="false"/>
+    <aura:attribute name="showTier2" type="boolean" default="false"/>
+    <aura:attribute name="showTier3" type="boolean" default="false"/>
+    <aura:attribute name="showTier4" type="boolean" default="false"/>
+    <aura:attribute name="loadingSpinner" type="boolean" default="false"/>
+    <aura:attribute name="showCompInScopetier1" type="boolean" default="false"/>
+    <aura:attribute name="showCompInScopetier2" type="boolean" default="false"/>
+    <aura:attribute name="showCompInScopetier3" type="boolean" default="false"/>
+    <aura:attribute name="showCompInScopetier4" type="boolean" default="false"/>
+    <aura:attribute name="totalContractHoursTier1" type="Decimal" />
+    <aura:attribute name="totalContractHoursTier2" type="Decimal" />
+    <aura:attribute name="totalContractHoursTier3" type="Decimal" />
+    <aura:attribute name="totalContractHoursTier4" type="Decimal" />
+    <aura:attribute name="tierValue" type="String" />
+    <aura:attribute name="impProjectId" type="String" />
+    <aura:attribute name="fnlAreaLabel" type="String" />
+    <aura:attribute name="tierType" type="String" />
+    <ltng:require styles="{!$Resource.Fontevatheme + '/Fontevatheme.css'}"/>
+    
+    <div class="slds-p-around_medium fon-theme  ">
+        <div class="slds-text-heading_small fon-content">
+            <p><lightning:formattedText  value="{! $Label.c.Tier_assignment_Label}"/></p>
+        </div>
+    </div>
+    <!--section 1 start-->  
+    <div class="slds-section slds-is-close" aura:id="tier4">
+        <!--section header-->
+        <h3 class="slds-section__title">
+            <button aria-controls="Tier4Requirement" class="slds-button slds-section__title-action" >
+                <span onclick="{!c.toggleSection}" data-auraId="tier4" style="color : #1798c1" class="slds-truncate slds-size_1-of-2">
+                    <lightning:icon iconName="utility:switch"
+                                    alternativeText="button icon"
+                                    size="x-small"
+                                    class="slds-section__title-action-icon slds-button__icon_left"/>
+                    {!$Label.c.Tier4} Requirements
+                </span>
+              <!--  <span class="slds-truncate slds-size_1-of-2" style="color : #1798c1" title="Requirements4">{!$Label.c.Tier4} Requirements</span> -->
+                <div class="slds-truncate slds-size_1-of-2 "  >
+                    <lightning:button class="slds-float_right slds-button_outline-brand"  label="{! $Label.c.Review_Out_Of_Scope_Button}" title="{! $Label.c.Review_Out_Of_Scope_Button}" name="{!$Label.c.Tier4}" onclick="{!c.showOutofScopeData }" aura:Id="ButtonTier4"/>
+                    
+                </div> 
+            </button>
+        </h3>
+        <!--section body-->
+        <div class="slds-section__content" id="Tier4Requirement">
+            <aura:if isTrue="{!v.showCompInScopetier4}">
+                <c:PSP_TierRequirementComponent proId ="{!v.impProjectId}" functionalAreaLabel="{!v.fnlAreaLabel}" tierFilter="{!v.tierValue}"></c:PSP_TierRequirementComponent>
+            </aura:if>
+        </div>
+        <aura:if isTrue="{!v.showTier4}">
+            <c:PSP_TierReqOut_Of_ScopeComponent proId ="{!v.impProjectId}" functionalAreaLabel="{!v.fnlAreaLabel}" tierType="{!v.tierType}"></c:PSP_TierReqOut_Of_ScopeComponent>
+        </aura:if>
+    </div>
+    <!--section 1 end-->
+    <!--section 2 start-->  
+    <div class="slds-section slds-is-close" aura:id="tier3">
+        <!--section header-->
+        <h3 class="slds-section__title">
+            <button aria-controls="Tier3Requirement" class="slds-button slds-section__title-action">
+                <span onclick="{!c.toggleSection}" data-auraId="tier3" style="color : #1798c1" class="slds-truncate slds-size_1-of-2">
+                    <lightning:icon iconName="utility:switch"
+                                    alternativeText="button icon"
+                                    size="x-small"
+                                    class="slds-section__title-action-icon slds-button__icon_left"/>
+                    {!$Label.c.Tier3} Requirements
+                </span>
+              <!--  <span class="slds-truncate slds-size_1-of-2" style="color : #1798c1" title="Requirements3">{!$Label.c.Tier3} Requirements</span> -->
+                <span class="slds-truncate slds-size_1-of-2">
+                    <lightning:button class="slds-float_right slds-button_outline-brand" label="{! $Label.c.Review_Out_Of_Scope_Button}" title="{! $Label.c.Review_Out_Of_Scope_Button}" name="{!$Label.c.Tier3}" onclick="{!c.showOutofScopeData }" aura:Id="ButtonTier3"/>
+                   
+                </span>
+            </button>
+        </h3>
+        <!--section body-->
+        <div class="slds-section__content" id="Tier3Requirement">
+            <aura:if isTrue="{!v.showCompInScopetier3}">
+                <c:PSP_TierRequirementComponent proId ="{!v.impProjectId}" functionalAreaLabel="{!v.fnlAreaLabel}" tierFilter="{!v.tierValue}"></c:PSP_TierRequirementComponent>
+            </aura:if>
+        </div>
+        <aura:if isTrue="{!v.showTier3}">
+            <c:PSP_TierReqOut_Of_ScopeComponent proId ="{!v.impProjectId}" functionalAreaLabel="{!v.fnlAreaLabel}" tierType="{!v.tierType}"></c:PSP_TierReqOut_Of_ScopeComponent>
+        </aura:if>
+    </div>
+    <!--section 2 end-->
+    <!--section 3 start-->  
+    <div class="slds-section slds-is-close" aura:id="tier2">
+        <!--section header-->
+        <h3 class="slds-section__title">
+            <button aria-controls="Tier2Requirement" class="slds-button slds-section__title-action">
+                <span onclick="{!c.toggleSection}" data-auraId="tier2" style="color : #1798c1" class="slds-truncate  slds-size_1-of-2">
+                    <lightning:icon iconName="utility:switch"
+                                    alternativeText="button icon"
+                                    size="x-small"
+                                    class="slds-section__title-action-icon slds-button__icon_left"/>
+                    {!$Label.c.Tier2} Requirements
+                </span>
+              <!--  <span class="slds-truncate slds-size_1-of-2" style="color : #1798c1" title="Requirements2">{!$Label.c.Tier2} Requirements</span> -->
+                <span class="slds-truncate  slds-size_1-of-2" >
+                    <lightning:button class="slds-float_right slds-button_outline-brand" label="{! $Label.c.Review_Out_Of_Scope_Button}" title="{! $Label.c.Review_Out_Of_Scope_Button}" name="{!$Label.c.Tier2}" onclick="{!c.showOutofScopeData }" aura:Id="ButtonTier2"/>
+                    
+                </span>
+            </button>
+        </h3>
+        <!--section body-->
+        <div class="slds-section__content" id="Tier2Requirement">
+            <aura:if isTrue="{!v.showCompInScopetier2}">
+                <c:PSP_TierRequirementComponent proId ="{!v.impProjectId}" functionalAreaLabel="{!v.fnlAreaLabel}" tierFilter="{!v.tierValue}"></c:PSP_TierRequirementComponent>
+            </aura:if>
+        </div>
+        <aura:if isTrue="{!v.showTier2}">
+            <c:PSP_TierReqOut_Of_ScopeComponent proId ="{!v.impProjectId}" functionalAreaLabel="{!v.fnlAreaLabel}" tierType="{!v.tierType}"></c:PSP_TierReqOut_Of_ScopeComponent>
+        </aura:if>
+    </div>
+    <!--section 3 end-->
+    <!--section 4 start-->  
+    <div class="slds-section slds-is-close" aura:id="tier1">
+        <!--section header-->
+        <h3 class="slds-section__title">
+            <button aria-controls="Tier1Requirement" class="slds-button slds-section__title-action">
+                
+                <span onclick="{!c.toggleSection}" data-auraId="tier1" aura:id="test" style="color : #1798c1" class="slds-truncate slds-size_1-of-2">
+                    <lightning:icon iconName="utility:switch"
+                                    alternativeText="button icon"
+                                    size="x-small"
+                                    class="slds-section__title-action-icon slds-button__icon_left" />
+                    {!$Label.c.Tier1} Requirements
+                </span>
+              <!--  <span class="slds-truncate slds-size_1-of-2"  style="color : #1798c1" title="Requirements1">{!$Label.c.Tier1} Requirements</span> -->
+                <span class="slds-truncate slds-size_1-of-2" >
+                    <lightning:button class="slds-float_right slds-button_outline-brand" label="{! $Label.c.Review_Out_Of_Scope_Button}" name="{!$Label.c.Tier1}" title="{! $Label.c.Review_Out_Of_Scope_Button}" onclick="{!c.showOutofScopeData }" aura:Id="ButtonTier1"/>
+                </span>
+            </button>
+        </h3>
+        <!--section body-->
+        <div class="slds-section__content" id="Tier1Requirement">
+            <aura:if isTrue="{!v.showCompInScopetier1}">
+                <c:PSP_TierRequirementComponent proId ="{!v.impProjectId}" functionalAreaLabel="{!v.fnlAreaLabel}" tierFilter="{!v.tierValue}"></c:PSP_TierRequirementComponent>
+            </aura:if>
+        </div>
+        <aura:if isTrue="{!v.showTier1}">
+            <c:PSP_TierReqOut_Of_ScopeComponent proId ="{!v.impProjectId}" functionalAreaLabel="{!v.fnlAreaLabel}" tierType="{!v.tierType}"></c:PSP_TierReqOut_Of_ScopeComponent>
+        </aura:if>
+    </div>
+    <aura:if isTrue="{!v.loadingSpinner}">
+       <c:PSP_Spinner></c:PSP_Spinner>
+    </aura:if> 
+</aura:component>

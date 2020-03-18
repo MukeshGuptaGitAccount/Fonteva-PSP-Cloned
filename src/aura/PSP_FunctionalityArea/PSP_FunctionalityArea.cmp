@@ -1,0 +1,34 @@
+<aura:component controller="ProjectScopeFunctionalityController" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    
+    <aura:attribute name="allFunArea" type="List"/>
+    <aura:attribute name="projectId" type="String" />
+    <aura:attribute name="selectedFunctionalArea" type="List"/>
+    <aura:registerEvent name="cmpEvent" type="c:functinalityAreaListEvent"/> 
+    <aura:registerEvent name="cancelEvent" type="c:BackToPreviousEvent"/>
+    <aura:attribute name="objInfo" type="Test_Case__c" default="{sobjectType : 'Test_Case__c'}" />
+    <aura:attribute name="listSkillsOptions" type="List" default="[]"/>
+    <aura:attribute name="selectedSkillsItems" type="List" default="[]" />
+    <aura:attribute name="showfunction" type="boolean" default="false"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+     <ltng:require styles="{!$Resource.Fontevatheme + '/Fontevatheme.css'}"/>
+    <div  class="slds-text-heading_small fon-title ">
+        <p><lightning:formattedText  value="{! $Label.c.Functionality_Area}"/></p><br/>  
+    </div>
+    <div class="slds-p-left_xx-large"  >
+        <lightning:dualListBox  aura:id="selectOptions" label=""  sourceLabel="{! $Label.c.Functionality_Area_Available}" 
+                               selectedLabel="{! $Label.c.Functionality_Area_to_the_Contarct}" options="{!v.listSkillsOptions}" 
+                               value="{!v.selectedSkillsItems }" onchange="{! c.handleChange }">
+        </lightning:dualListBox>   
+    </div>
+    <br/>
+    <div class="slds-float_right">
+        <lightning:button variant="Neutral" label="{! $Label.c.Cancel_Button}" onclick="{!c.cancelFunction}"></lightning:button>&nbsp;
+        <lightning:button variant="brand" label="{! $Label.c.Save_Button}" onclick="{!c.save}"></lightning:button>
+    </div>
+    <aura:if isTrue="{!v.showSpinner}">
+        <c:PSP_Spinner></c:PSP_Spinner>
+    </aura:if>  
+</aura:component>

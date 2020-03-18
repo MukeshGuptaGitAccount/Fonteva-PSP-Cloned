@@ -1,0 +1,1 @@
+<aura:event type="Component" description="Event to pass showComp value" />

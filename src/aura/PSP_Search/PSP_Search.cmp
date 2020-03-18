@@ -1,0 +1,64 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" 
+                controller="ImplementationProjectController">
+    <aura:attribute name="projectId" type="String" />
+    <aura:attribute name="noRecordFound" type="Boolean" default="false" />
+    <aura:attribute name="recordExist" type="Boolean" default="false" />
+    <aura:attribute name="showButton" type="Boolean" default="false" />
+    <aura:attribute name="hideNewbutton" type="Boolean" default="true" />
+    <aura:attribute name="hideText" type="Boolean" default="true"/>
+    <aura:attribute name="showProjectTabComponent" type="Boolean" default="false" />
+    <aura:attribute name="hideParentComp" type="Boolean" default="true"/>   <!-- Need to change Default value 'false' when enable doInit method-->
+    <aura:attribute name="isHide" type="Boolean" default="true" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    <!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>-->
+    <ltng:require styles="{!$Resource.Fontevatheme + '/Fontevatheme.css'}"/>
+    <div>
+    <aura:if isTrue="{!v.hideParentComp}">
+        <lightning:card title="" class="fon-theme">
+            <div class="slds-p-around_small slds-text-heading_medium fon-title  "  >
+                <lightning:formattedText  value="{!$Label.c.Header_Label}"/>
+            </div>
+            <div class="slds-p-left_xx-large slds-p-top_x-small">
+                <aura:if isTrue="{!v.hideText}">
+                    <lightning:formattedText class="slds-text-heading_small"  value="{!$Label.c.Instructional_Text}"/>
+                </aura:if>        
+            </div>
+            <div class="slds-p-left_xx-large  ">
+                <aura:if isTrue="{!v.showButton}">
+                    <p><lightning:formattedText class="slds-text-heading_small"  value="{!$Label.c.Identify_Project_Instructional_Text}"/></p> 
+                </aura:if>  
+            </div>
+            <div class="slds-grid slds-wrap slds-p-around_small">
+                <div class="slds-col slds-size_3-of-3">
+                    
+                    <lightning:recordEditForm aura:id="recordViewForm"  objectApiName="Test_Case__c"> 
+                        <lightning:inputField  fieldName="Implementation_Projects__c"  aura:id="ids"/>  
+                    </lightning:recordEditForm>
+                </div>   
+            </div>  
+            <center>
+                <aura:if isTrue="{!v.noRecordFound}">
+                    <p><lightning:formattedText style="color: red" value="{!$Label.c.No_result_found}"/></p>
+                </aura:if> 
+            </center>              
+            <div class="slds-clearfix slds-p-around_small">
+                <div class="slds-float_right ">
+                    <lightning:button variant="brand" disabled="{!v.isHide}" label="{!$Label.c.Create_Customer_Requirements_Button}" onclick="{! c.createRequirement }" />  
+                    <aura:if isTrue="{!v.hideNewbutton}">
+                        <lightning:button variant="brand" label="{!$Label.c.Search_Button}" onclick="{! c.searchRequirement }" /> 
+                    </aura:if>  
+                </div>      
+            </div>    
+        </lightning:card>
+    </aura:if>  
+    <aura:if isTrue="{!v.showProjectTabComponent}">
+        <div>
+            <c:PSP_ProjectTabComponent parentProjectId="{!v.projectId}"/>
+        </div>
+    </aura:if>  
+    <aura:if isTrue="{!v.showSpinner}">
+        <c:PSP_Spinner></c:PSP_Spinner>
+    </aura:if>  
+        </div>
+</aura:component>

@@ -1,0 +1,117 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                controller="ProjectScopeFunctionalityController" 
+                access="global" >
+    <!--Attribute Start-->
+    <aura:attribute name="tabId" type="String" default="2"/>
+    <aura:attribute name="parentProjectId" type="String" />
+    <aura:attribute name="showComp" type="boolean" default="false"/>
+    <aura:attribute name="funAreaLabel" type="String" />
+    <aura:attribute name="displayFunctionalityArea" type="boolean" default="false"/>
+    <aura:attribute name="showTierAssignmentComponent" type="boolean" default="false"/>
+    <aura:attribute name="impProject" type="Implementation_Projects__c" default="{ 'sobjectType': 'Implementation_Projects__c' }"/>
+    <aura:attribute name="selectedSkillsItems" type="List" default="[]" />
+    <aura:attribute name="showSpinner" type="boolean" default="false"/>
+    <aura:attribute name="displayAddFunctionlityLink" type="boolean" default="false"/>
+    <!--Attribute End-->
+    <!--Handler Start -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="cmpEvent" event="c:functinalityAreaListEvent" action="{!c.handleCmpEvent}"/> 
+    <aura:handler name="cancelEvent" event="c:BackToPreviousEvent" action="{!c.handleCancelEvent}"/> 
+    <!--Handler End -->
+  <ltng:require styles="{!$Resource.Fontevatheme + '/Fontevatheme.css'}"/>
+    <div>
+        <aura:if isTrue="{!v.showSpinner}">
+            <c:PSP_Spinner></c:PSP_Spinner>
+        </aura:if>  
+        <div class="slds-p-around_medium fon-theme">
+            <lightning:formattedText class="slds-text-heading_medium fon-title"  value="{!v.impProject.Account__r.Name}"/><br/>
+            
+            <div class="slds-grid slds-gutters  slds-p-around_medium " >
+                <div  class="slds-m-left_medium  slds-m-right_medium  slds-p-around_medium  divSize slds-grid slds-wrap ">
+                    <div class="slds-size_1-of-3">
+                        <p style="font-weight: bold"> {!$Label.c.Project_Name}</p>
+                    </div>
+                    {!$Label.c.Colon}&nbsp;&nbsp;
+                    <div class="slds-size_1-of-2">
+                        <p style="font-weight: bold"> <lightning:formattedText style="color:#1798c1;font-weight: bold"  value="{!v.impProject.Name}"/></p>
+                    </div>
+                    <div class="slds-size_1-of-3">
+                        <p style="font-weight: bold"> {!$Label.c.Account_Owner}</p>
+                    </div>
+                    {!$Label.c.Colon}&nbsp;&nbsp;
+                    <div class="slds-size_1-of-2">
+                        <p style="font-weight: bold"> <lightning:formattedText style="color:#1798c1"  value="{!v.impProject.Account__r.Account_Owner__c}"/></p>
+                    </div>
+                </div>        
+                <div  class="slds-m-left_medium  slds-m-right_small  slds-p-around_medium divSize  slds-grid slds-wrap ">
+                    <div class="slds-size_1-of-3">
+                        <p style="font-weight: bold"> {!$Label.c.Project_Manager}</p>
+                    </div>
+                    {!$Label.c.Colon}&nbsp;&nbsp;
+                    <div class="slds-size_1-of-2">
+                        <p style="font-weight: bold"> <lightning:formattedText style="color:#1798c1"  value="{!v.impProject.Project_Manager__r.FirstName +' '+ v.impProject.Project_Manager__r.LastName}"/></p>
+                    </div>
+                    
+                    <div class="slds-size_1-of-3">
+                        <p style="font-weight: bold"> {!$Label.c.Business_Analyst}</p>
+                    </div>
+                    {!$Label.c.Colon}&nbsp;&nbsp;
+                    <div class="slds-size_1-of-2">
+                        <p style="font-weight: bold"> <lightning:formattedText style="color:#1798c1" value="{!v.impProject.User__r.FirstName +' '+ v.impProject.User__r.LastName}"/></p>
+                    </div>               
+                </div>
+            </div>
+        </div>
+        <lightning:tabset selectedTabId="{!v.tabId}" >
+            <lightning:tab label="{!$Label.c.Project_Information}" id="1" >
+                {!$Label.c.Project_Information}
+            </lightning:tab >
+            <lightning:tab label="{!$Label.c.Project_Scope}" id="2">
+                
+                <aura:if isTrue="{!!v.showComp}">
+                    <div class="slds-p-around_medium fon-theme ">
+                        <div class="slds-p-left_x-large slds-p-around_medium ">
+                            <p><lightning:formattedText class="fon-content" value="{!$Label.c.Project_Scope_Instructional_Text}"/></p>
+                        </div>
+                    </div>
+                    <div class="slds-float_right">
+                        <a><aura:if isTrue="{!v.displayAddFunctionlityLink}">
+                            <aura:if isTrue="{!!v.showComp}">
+                                <button class="slds-button" onclick="{!c.showFunctionalityArea}">{! $Label.c.Functionality_Area}</button>
+                            </aura:if>
+                            </aura:if> </a>
+                    </div>
+                </aura:if> 
+                <div class="slds-clearfix">
+                    <aura:if isTrue="{!!v.showComp}">
+                        <aura:iteration items="{!v.selectedSkillsItems}" var="item" >
+                            <lightning:button class="myBtn slds-size_1-of-6 slds-m-top_medium "
+                                              variant="brand" label="{!item}" name="{!item}" onclick="{!c.getTierAssignment}" ></lightning:button>
+                        </aura:iteration>
+                    </aura:if>
+                    <aura:if isTrue="{!v.displayFunctionalityArea}">
+                        <div >
+                            <c:PSP_FunctionalityArea selectedFunctionalArea="{!v.selectedSkillsItems}" projectId="{!v.parentProjectId}"/>
+                        </div> 
+                    </aura:if>
+                </div>
+                <aura:if isTrue="{!v.showTierAssignmentComponent}">
+                    <span class="slds-truncate slds-size_1-of-3" title="Review">
+                        <lightning:button class="slds-float_right" variant="brand" label="{!$Label.c.All_Functionality_Area}" onclick="{!c.backTofunctionalArea}" />
+                        
+                    </span> 
+                    <div class="slds-p-around_small slds-text-heading_medium  fon-title">
+                        <p><lightning:formattedText  value="{!v.funAreaLabel}"/></p>
+                    </div>
+                    <c:PSP_TierAssignmentComponent impProjectId="{!v.parentProjectId}" fnlAreaLabel="{!v.funAreaLabel}"></c:PSP_TierAssignmentComponent>
+                </aura:if> 
+            </lightning:tab>
+            <lightning:tab label="{!$Label.c.Project_Requirements}">Issues
+                {!$Label.c.Project_Requirements}
+            </lightning:tab>
+            <lightning:tab label="{!$Label.c.Issues}">
+                {!$Label.c.Issues}
+            </lightning:tab>
+        </lightning:tabset>
+    </div>
+</aura:component>

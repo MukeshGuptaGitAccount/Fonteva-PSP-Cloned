@@ -1,0 +1,95 @@
+<!--Aura Component to Display Out-of-Scope Requirements based on Tier -->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="PSP_TierRequirementController">
+    <!-- Register Events to Back button function -->
+    <aura:registerEvent name="cancelEvent" type="c:backEvent"/>
+    
+    <!-- Handler Start -->
+    <aura:handler name="init" value="{!this}" action="{!c.showOutOfScopeData}"/>
+    <!-- Handler End -->
+    
+    <!--Attribute Start-->
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    <aura:attribute name="proId" type="String" />
+    <aura:attribute name="requirementoutofscopeList" type="List" default="[]" />
+    <aura:attribute name="showButton" type="boolean" default="false"/>
+    <aura:attribute name="functionalAreaLabel" type="String" />
+    <aura:attribute name="displayErrorText" type="String" />
+    <aura:attribute name="displayError" type="Boolean" default="false"/>
+    <aura:attribute name="toBeDiscussList" type="Set" default="[]" />
+    <aura:attribute name="inScopeTentativeList" type="List" default="[]" />
+    <aura:attribute name="inScopeUndeterminedList" type="List" default="[]" />
+    <aura:attribute name="abc" type="Boolean" default="true"/>  
+    <aura:attribute name="tierType" type="String" />
+    <aura:attribute name="buttonStatusMap" type="Map" default="{}" />
+    <aura:attribute name="buttonSourceMapTentative" type="Map" default="{}" />
+    <aura:attribute name="buttonSourceMapUndetermined" type="Map" default="{}" />
+    <aura:attribute name="displayForFontevan" type="Boolean" default="false" />
+    <!--Attribute End-->
+    <ltng:require styles="{!$Resource.Fontevatheme + '/Fontevatheme.css'}"/>
+    <aura:if isTrue="{! !v.displayError}">
+    <div >
+        <div  class="slds-p-around_medium fon-theme" >
+            <p><lightning:formattedText style="font-weight:bold;color:#FF0000" value="{! $Label.c.Out_of_Scope_Options_Label}"/></p><br/>
+            <table class="slds-table fon-theme">
+                <thead>
+                    <tr class="slds-line-height_reset slds-border_bottom fon-theme">
+                        <th class="" scope="col" style="text-align: center;">{!$Label.c.Requirement_Summary}</th>
+                        <aura:if isTrue="{!v.displayForFontevan}">
+                            <th class="" scope="col" style="text-align: center;"> {!$Label.c.LOE}</th>
+                        </aura:if>
+                        <th class="" scope="col" style="text-align: center;"> {!$Label.c.Details_Related_Information}</th>
+                        <th class="" scope="col" style="text-align: center;"> {!$Label.c.Status} </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.requirementoutofscopeList}" var="item" >
+                        <tr class="slds-hint-parent">
+                            
+                            <td data-label="{!$Label.c.Requirement_Summary}"> 
+                                 <div onclick="{!c.calltoCopy}" name="{!item.req.Name}">
+                                <lightning:helptext content="{!item.req.Name}" class="slds-float_right" iconName="utility:copy_to_clipboard"/><br/>
+                                </div>
+                                <ui:outputTextArea value="{!item.req.User_Requirement_Summary__c}"/>
+                            </td>
+                            <aura:if isTrue="{!v.displayForFontevan}">
+                                <td data-label="{!$Label.c.LOE}">
+                                    <lightning:formattedText  value="{!item.req.Sales_LOE__c}"/>
+                                </td>
+                            </aura:if>
+                            <td data-label="{!$Label.c.Details_Related_Information}">
+                                <ui:outputTextArea value="{!item.req.User_Requirement_Description__c}"/>
+                            </td>
+                            <td data-label="{!$Label.c.Status}" style="width:30%"  >
+                                <aura:if isTrue="{!!v.showButton}">
+                                    <aura:if isTrue="{!!v.displayForFontevan}">
+                                        <lightning:button class="slds-m-around_xxx-small slds-button_outline-brand" aura:id="ids" value="{!item.req.Id}" variant="Neutral" label="{!$Label.c.Needed_Label}" onclick="{!c.ShowToBeDiscussed}"/><br/>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.displayForFontevan}">
+                                        <lightning:button class="slds-m-around_xxx-small slds-button_outline-brand" value="{!item.req.Id}" variant="Neutral" label="{!$Label.c.In_Scope_Tentative}" onclick="{!c.callInScopeTentative}"/><br/>
+                                        <lightning:button class="slds-m-around_xxx-small slds-button_outline-brand" value="{!item.req.Id}"  variant="Neutral" label="{!$Label.c.In_Scope_Undetermined}" onclick="{!c.callInScopeUndetermined}"/>
+                                    </aura:if>
+                                </aura:if> 
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </aura:if>
+    <aura:if isTrue="{!v.showSpinner}">
+        <c:PSP_Spinner></c:PSP_Spinner>
+    </aura:if>
+    <aura:if isTrue="{!v.displayError}">
+        <div class="slds-text-align_center slds-text-color_error ">
+            <lightning:formattedText style="font-weight:bold" value="{!v.displayErrorText}"/><br/>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{! !v.displayError}">
+    <div class="slds-align_absolute-center slds-m-vertical_x-large ">
+        <lightning:button class="slds-m-horizontal_x-small" variant="brand" label="{!$Label.c.Back_Button}"   title="Back" onclick="{!c.hideOutofScopeData }"/>
+        <lightning:button class="slds-m-horizontal_x-small" variant="brand" label="{!$Label.c.Save_Close}" aura:id="saveAndCloseDisable" title="Save-Close" onclick="{!c.saveAndClose}" />
+        <lightning:button class="slds-m-horizontal_x-small" variant="brand" label="{!$Label.c.Save_Button}" aura:id="saveDisable" title="Save" onclick="{!c.save}" />   
+    </div>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,26 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global"
+                controller="ImplementationProjectController">
+    <!-- Attribute Section Start -->
+    <aura:attribute name="projectId" type="String" />
+    <aura:attribute name="profileName" type="String" />
+    <aura:attribute name="impProjectList" type="Implementation_Projects__c[]" />
+    <aura:attribute name="showSearchComponent" type="Boolean" default="false" />
+    <aura:attribute name="showProjectTabComponent" type="Boolean" default="false" />
+    <aura:attribute name="showModal" type="Boolean" default="false" />
+    <aura:attribute name="showMessage" type="Boolean" default="false" />
+    <!-- Attribute Section End -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:if isTrue="{!v.showSearchComponent}">
+        <c:PSP_Search></c:PSP_Search>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.showProjectTabComponent}">
+        <c:PSP_ProjectTabComponent parentProjectId="{!v.projectId}"></c:PSP_ProjectTabComponent>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.showMessage}">
+        <lightning:formattedText  value="{! $Label.c.Contact_System_Admin}"/>
+    </aura:if>
+</aura:component>

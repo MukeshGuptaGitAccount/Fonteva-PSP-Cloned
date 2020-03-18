@@ -1,0 +1,1 @@
+<aura:event type="Component" description="This event will fire on Click on back button" />

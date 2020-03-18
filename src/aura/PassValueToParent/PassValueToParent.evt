@@ -1,0 +1,3 @@
+<aura:event type="Component" description="This Event will fire when click on back button by drill down component" >
+	  <aura:attribute name="arrayList" type="List" default="[]" /> 
+</aura:event>

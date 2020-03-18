@@ -1,0 +1,149 @@
+<!--Aura Component to Display In-Scope Requirements based on Tier -->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="PSP_TierRequirementController">
+    <!-- Register Events  -->
+    <aura:registerEvent name="backFunctionEvent" type="c:backScopeEvent"/>
+    
+    <!-- Handler Start -->
+    <aura:handler name="init" value="{!this}" action="{!c.showInScopeData}"/> 
+    <aura:handler name="backChildCompEvent" event="c:backChildComponentEvent" action="{!c.hideChildsData}"/>
+    <!-- Handlers End -->    
+    
+    <!--Attribute Start-->
+    <aura:attribute name="reqListchild" type="List" default="[]" /> 
+    <aura:attribute name="proId" type="String" />
+    <aura:attribute name="reqId" type="String" />
+    <aura:attribute name="functionalAreaLabel" type="String" />
+    <aura:attribute name="requirementInscopeList" type="List" default="[]" />
+    <aura:attribute name="requirementInscopeListUpdate" type="List" default="[]" />
+    <aura:attribute name="requirementInscopeListFeedbackUpdate" type="List" default="[]" />
+    <aura:attribute name="neededList" type="List" default="[]" /> 
+    <aura:attribute name="statusValue" type="String" />
+    <aura:attribute name="displayErrorText" type="String" />
+    <aura:attribute name="displayError" type="Boolean" default="false"/>
+    <aura:attribute name="displayEditButton" type="Boolean" default="false"/>
+    <aura:attribute name="showValidatedbutton" type="Boolean" default="false"/>
+    <aura:attribute name="showNeededbutton" type="Boolean" default="false"/>
+    <aura:attribute name="tierFilter" type="String" />
+    <aura:attribute name="buttonStatusMap" type="Map" default="{}" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    <aura:attribute name="SourceMapInscope" type="Map" default="{}" />
+    <aura:attribute name="SourceMapNotNeeded" type="Map" default="{}" />
+    
+    <!--Attribute End-->
+    <ltng:require styles="{!$Resource.Fontevatheme + '/Fontevatheme.css'}"/>
+    <aura:if isTrue="{! !v.displayError}">
+        <div class="slds-table--header-fixed_container" style="height:400px;">
+            <div class="slds-scrollable_y" style="height:100%;">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered fon-theme slds-table--header-fixed ">
+                    
+                    <thead >
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col" style="text-align: center;" width="30%">
+                                <div class="slds-truncate slds-cell-fixed" style="color : #1798c1" title="Requirement Summary">{!$Label.c.Requirement_Summary}</div>
+                            </th>
+                            <aura:if isTrue="{!v.displayEditButton}">
+                                <th class="" scope="col" style="text-align: center;" width="10%">
+                                    <div class="slds-truncate slds-cell-fixed" style="color : #1798c1" title="LOE">{!$Label.c.LOE}</div>
+                                </th>
+                            </aura:if>
+                            <th class="" scope="col" style="text-align: center;" width="30%">
+                                <div class="slds-truncate slds-cell-fixed" style="color : #1798c1" title="Details / Related Information">{!$Label.c.Details_Related_Information}</div>
+                            </th>
+                            <th class="" scope="col" style="padding-left:12%;" width="30%">
+                                <div class="slds-truncate slds-cell-fixed " style="color : #1798c1" title="Status">{!$Label.c.Status}</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.requirementInscopeList}" var="item" >
+                            <tr >
+                                <td data-label="Requirement" width="30%">
+                                    <div class="slds-truncate" >
+                                        <div onclick="{!c.calltoCopy}"  name="{!item.req.Name}" data-conId="{!item.req.Id}">
+                                            <aura:if isTrue="{!item.hideTooltip}">
+                                                <lightning:helptext content="{!item.req.Name}" class="slds-float_right" title="{!$Label.c.Click_to_Copy +' '+item.req.Name}"   iconName="utility:copy_to_clipboard" />
+                                            </aura:if>   
+                                            <aura:if isTrue="{!item.showCheck}">
+                                                <lightning:helptext content="{!$Label.c.Copied}" class="slds-float_right"  iconName="utility:check" />
+                                                
+                                            </aura:if>   
+                                        </div>
+                                        <lightning:textarea maxlength="180" value="{!item.req.User_Requirement_Summary__c}" disabled="{! !item.enable}"></lightning:textarea>
+                                    </div>
+                                </td>
+                                <aura:if isTrue="{!v.displayEditButton}">
+                                    <td data-label="LOE" width="10%">
+                                        <div class="slds-truncate" >
+                                            <lightning:input maxlength="10" value="{!item.req.Sales_LOE__c}" disabled="{! !item.enable}"></lightning:input>
+                                        </div>
+                                    </td>
+                                </aura:if>
+                                <td data-label="Details Related Information" width="30%">
+                                    <div class="slds-truncate" >
+                                        <lightning:textarea  maxlength="32768" value="{!item.req.User_Requirement_Description__c}" disabled="{! !item.enable}" />
+                                    </div>
+                                </td>
+                                <td data-label="Status" width="50%" align="center" >
+                                    <div  style="text-align: center;" >
+                                        <aura:if isTrue="{!or(item.req.Status__c == $Label.c.In_Scope_Tentative, item.req.Status__c == $Label.c.In_Scope_Undetermined)}">
+                                            <lightning:button  variant="Neutral" label="{!$Label.c.In_Scope_Label}" value="{!item.req.Id}" title="{!$Label.c.In_Scope_Label}"
+                                                              onclick="{!c.showValidated}" disabled="{!item.enableInScope}"/>
+                                            <lightning:button   variant="Neutral" value="{!item.req.Id}" label="{!$Label.c.Not_Needed_Label}" 
+                                                              title="{!$Label.c.Not_Needed_Label}" onclick="{!c.showNeeded}" disabled="{!item.enableNotNeeded}"/>
+                                        </aura:if>
+                                        <aura:if isTrue="{!item.enableNeeded}">
+                                            <lightning:button  variant="destructive" value="{!item.req.Id}" label="{!$Label.c.Needed_Label}" title="{!$Label.c.Needed_Label}"/>
+                                        </aura:if>
+                                        <aura:if isTrue="{!item.req.Status__c == $Label.c.In_Scope_Approved}">
+                                            <lightning:button  variant="brand" value="{!item.req.Id}" label="{!$Label.c.In_Scope_Validated_Label}" title="{!$Label.c.In_Scope_Validated_Label}"/>
+                                        </aura:if>
+                                        <aura:if isTrue="{!item.req.Status__c == $Label.c.Filter_New}">
+                                            <lightning:button  variant="destructive" value="{!item.req.Id}" label="{!$Label.c.Discussed_Label}" title="{!$Label.c.Discussed_Label}" />
+                                        </aura:if><br/>
+                                        <aura:if isTrue="{!v.displayEditButton}">
+                                            <lightning:button class="slds-m-around_small "  variant="Neutral" value="{!item.req.Id}" label="{!$Label.c.Edit_Button}" title="Edit" onclick="{!c.editSection}"/>
+                                        </aura:if>
+                                        <lightning:button class="slds-m-around_small "  variant="Neutral" value="{!item.req.Id}" label="Feedback" title="Feedback" onclick="{!c.feedbackSection}"/><br/>
+                                        <aura:if isTrue="{!item.req.Status__c == $Label.c.In_Scope_Approved}">
+                                            <lightning:button  variant="Neutral" value="{!item.req.Id}" label="{!$Label.c.Drill_Down_Button}" title="Drill Down" onclick="{!c.drillDownSection}" disabled="{!item.enableCoreRequirement}"/><br/>
+                                        </aura:if>
+                                    </div>
+                                </td>
+                            </tr>
+                            <aura:if isTrue="{!item.enableFeedback}">
+                                <tr >
+                                    <td colspan="4">
+                                        <lightning:inputRichText label="Feedback" value="{!item.req.Feedback__c}" messageWhenBadInput="">
+                                            <lightning:insertImageButton />
+                                        </lightning:inputRichText>
+                                    </td>
+                                </tr>
+                            </aura:if>
+                            <aura:if isTrue="{!item.enableChildComponent}">
+                                <tr>
+                                    <td colspan="4">
+                                        <c:PSP_TierRequirementChildComponent reqId ="{!v.reqId}" functionalAreaLabel="{!v.functionalAreaLabel}" tierFilter="{!v.tierFilter}"></c:PSP_TierRequirementChildComponent>
+                                    </td>
+                                </tr>
+                            </aura:if>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div></div>
+    </aura:if>
+    <aura:if isTrue="{!v.displayError}">
+        <div class="slds-text-align_center slds-text-color_error ">
+            <lightning:formattedText style="font-weight:bold" value="{!v.displayErrorText}"/><br/>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.showSpinner}">
+        <c:PSP_Spinner></c:PSP_Spinner>
+    </aura:if>  
+    <aura:if isTrue="{! !v.displayError}">
+        <div class="slds-align_absolute-center slds-m-vertical_x-large ">
+            <lightning:button class="slds-m-horizontal_x-small" variant="brand" label="{!$Label.c.Back_Button}" title="Back" onclick="{!c.backFunction}"/>
+            <lightning:button class="slds-m-horizontal_x-small" variant="brand" label="{!$Label.c.Save_Close}" aura:id="saveAndClose" title="Save-Close" onclick="{!c.saveAndCloseFuction}" />
+            <lightning:button class="slds-m-horizontal_x-small" variant="brand" label="{!$Label.c.Save_Button}" aura:id="save" title="Save" onclick="{!c.saveReq}" />
+        </div>
+    </aura:if>
+</aura:component>

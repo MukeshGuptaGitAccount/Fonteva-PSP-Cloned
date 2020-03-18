@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Account</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account</shortDescription>
+        <value>Account</value>
+    </labels>
+    <labels>
+        <fullName>Account_Owner</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account Owner</shortDescription>
+        <value>Account Owner</value>
+    </labels>
+    <labels>
+        <fullName>All_Functionality_Area</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All Functionality Area</shortDescription>
+        <value>Return to Functional Areas</value>
+    </labels>
+    <labels>
+        <fullName>Back_Button</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Back Button</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>Business_Analyst</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Business Analyst</shortDescription>
+        <value>Business Analyst</value>
+    </labels>
+    <labels>
+        <fullName>Cancel_Button</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel Button</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Click_to_Copy</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Click to Copy</shortDescription>
+        <value>Click to Copy</value>
+    </labels>
+    <labels>
+        <fullName>Close_Drill</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Close Drill</shortDescription>
+        <value>Close Drill</value>
+    </labels>
+    <labels>
+        <fullName>Colon</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Colon</shortDescription>
+        <value>:</value>
+    </labels>
+    <labels>
+        <fullName>Contact_System_Admin</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact System Admin</shortDescription>
+        <value>Contact System admin for this feature</value>
+    </labels>
+    <labels>
+        <fullName>Contract_Packaging_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contract Packaging Label</shortDescription>
+        <value>Contract Packaging Association</value>
+    </labels>
+    <labels>
+        <fullName>Copied</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Copied</shortDescription>
+        <value>Copied</value>
+    </labels>
+    <labels>
+        <fullName>Create_Customer_Requirements_Button</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create Customer Requirements Button</shortDescription>
+        <value>Create Customer Requirements</value>
+    </labels>
+    <labels>
+        <fullName>Declined</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Declined</shortDescription>
+        <value>Declined</value>
+    </labels>
+    <labels>
+        <fullName>Details</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Details</shortDescription>
+        <value>Details</value>
+    </labels>
+    <labels>
+        <fullName>Details_Related_Information</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Details Related Information</shortDescription>
+        <value>Details Related Information</value>
+    </labels>
+    <labels>
+        <fullName>Discussed_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Discussed Label</shortDescription>
+        <value>To be Discussed</value>
+    </labels>
+    <labels>
+        <fullName>Drill_Down_Button</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Drill Down Button</shortDescription>
+        <value>Drill Down</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Button</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit Button</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Error</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error</shortDescription>
+        <value>Something Went Wrong</value>
+    </labels>
+    <labels>
+        <fullName>Error_Message_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Message Label</shortDescription>
+        <value>Please select a value first.</value>
+    </labels>
+    <labels>
+        <fullName>Error_select_a_project</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error select a project</shortDescription>
+        <value>Please select a project !!!</value>
+    </labels>
+    <labels>
+        <fullName>Filter_New</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter New</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>Fonteva_Profile</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fonteva Profile</shortDescription>
+        <value>Custom: System Administrator</value>
+    </labels>
+    <labels>
+        <fullName>Functional_Area_Tier_designation_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Functional Area Tier designation Label</shortDescription>
+        <value>No requirements identified within the Contract for this Functional Area’s Tier designation.</value>
+    </labels>
+    <labels>
+        <fullName>Functionality_Area</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Functionality Area</shortDescription>
+        <value>Add a Functionality Area</value>
+    </labels>
+    <labels>
+        <fullName>Functionality_Area_Available</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Functionality Area Available</shortDescription>
+        <value>Modules Available</value>
+    </labels>
+    <labels>
+        <fullName>Functionality_Area_to_the_Contarct</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Functionality Area to the Contarct</shortDescription>
+        <value>Modules Under the Contract</value>
+    </labels>
+    <labels>
+        <fullName>Header_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header Label</shortDescription>
+        <value>Fonteva Account Management</value>
+    </labels>
+    <labels>
+        <fullName>Identify_Project_Instructional_Text</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Identify Project Instructional Text</shortDescription>
+        <value>Identify the Implementation Project that needs Customer Requirements.</value>
+    </labels>
+    <labels>
+        <fullName>In_Scope_Approved</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>In-Scope, Approved</shortDescription>
+        <value>In-Scope, Approved</value>
+    </labels>
+    <labels>
+        <fullName>In_Scope_Filter</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>In_Scope_Filter</shortDescription>
+        <value>In-Scope, Tentative:In-Scope, Undetermined:In-Scope, Approved:New</value>
+    </labels>
+    <labels>
+        <fullName>In_Scope_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>In Scope Label</shortDescription>
+        <value>In Scope?</value>
+    </labels>
+    <labels>
+        <fullName>In_Scope_Not_Needed</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>In-Scope, Not Needed</shortDescription>
+        <value>In-Scope, Not Needed</value>
+    </labels>
+    <labels>
+        <fullName>In_Scope_Tentative</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>In-Scope, Tentative</shortDescription>
+        <value>In-Scope, Tentative</value>
+    </labels>
+    <labels>
+        <fullName>In_Scope_Undetermined</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>In-Scope, Undetermined</shortDescription>
+        <value>In-Scope, Undetermined</value>
+    </labels>
+    <labels>
+        <fullName>In_Scope_Validated_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>In-Scope Validated Label</shortDescription>
+        <value>In-Scope, Validated</value>
+    </labels>
+    <labels>
+        <fullName>Instructional_Text</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Instructional Text</shortDescription>
+        <value>Search for the Implementation Project record to work with their Customer Requirements.</value>
+    </labels>
+    <labels>
+        <fullName>Issues</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Issues</shortDescription>
+        <value>ISSUES</value>
+    </labels>
+    <labels>
+        <fullName>LOE</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LOE</shortDescription>
+        <value>LOE</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Business_Analyst</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Business Analyst</shortDescription>
+        <value>Lead Business Analyst</value>
+    </labels>
+    <labels>
+        <fullName>Needed_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Needed Label</shortDescription>
+        <value>Needed?</value>
+    </labels>
+    <labels>
+        <fullName>New_Button</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Button</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>No_Record_Found</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Record Found</shortDescription>
+        <value>No Record Found</value>
+    </labels>
+    <labels>
+        <fullName>No_result_found</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No result found</shortDescription>
+        <value>No results found. Please create a new customer requirement.</value>
+    </labels>
+    <labels>
+        <fullName>Not_Needed_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not Needed Label</shortDescription>
+        <value>Not Needed</value>
+    </labels>
+    <labels>
+        <fullName>Out_Of_Scope</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Out-Of-Scope</shortDescription>
+        <value>Out-Of-Scope</value>
+    </labels>
+    <labels>
+        <fullName>Out_of_Scope_Options_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Out-of-Scope Options Label</shortDescription>
+        <value>Out-of-Scope Options: Listed below are the requirements that have not been added to this Contract. To add, simply click on the button, Needed?, and the requirement will be identified for a discussion to include it within the contract.</value>
+    </labels>
+    <labels>
+        <fullName>Project_Information</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Project Information</shortDescription>
+        <value>PROJECT INFORMATION</value>
+    </labels>
+    <labels>
+        <fullName>Project_Manager</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Project Manager</shortDescription>
+        <value>Project 
+Manager</value>
+    </labels>
+    <labels>
+        <fullName>Project_Name</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Project Name</shortDescription>
+        <value>Project Name</value>
+    </labels>
+    <labels>
+        <fullName>Project_Requirements</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Project Requirements</shortDescription>
+        <value>PROJECT REQUIREMENTS</value>
+    </labels>
+    <labels>
+        <fullName>Project_Scope</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Project Scope</shortDescription>
+        <value>PROJECT SCOPE</value>
+    </labels>
+    <labels>
+        <fullName>Project_Scope_Instructional_Text</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Project Scope Instructional Text</shortDescription>
+        <value>Fonteva as an industry leader, is always striving to improve transparency and accuracy within an implementation. Towards this goal, access to the scope of your contract is presented below.
+
+Listed below are the Fonteva Functional Areas defined within your contract. To view the details of the requirement scope, simply click on the appropriate Functional Area’s button.
+
+If you are interested in expanding your contract to include additional Functional Areas, please contact your Project Manager.</value>
+    </labels>
+    <labels>
+        <fullName>Remove_from_Contract_Button</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remove from Contract Button</shortDescription>
+        <value>Remove from Contract ?</value>
+    </labels>
+    <labels>
+        <fullName>Requirement_Created</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Requirement Created</shortDescription>
+        <value>We will notify you via Email once requirements are created Successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Body</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email Body</shortDescription>
+        <value>Your requirements are created successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Subject</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email Subject</shortDescription>
+        <value>Requirement Status</value>
+    </labels>
+    <labels>
+        <fullName>Requirement_Status</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Requirement Status</shortDescription>
+        <value>Declined,Unknown,Out-Of-Scope</value>
+    </labels>
+    <labels>
+        <fullName>Requirement_Summary</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Requirement Summary</shortDescription>
+        <value>Requirement Summary</value>
+    </labels>
+    <labels>
+        <fullName>Review_Out_Of_Scope_Button</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Review Out-Of-Scope Button</shortDescription>
+        <value>Review Out-Of-Scope Options</value>
+    </labels>
+    <labels>
+        <fullName>Save_Button</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save Button</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Save_Close</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save &amp; Close Button</shortDescription>
+        <value>Save &amp; Close</value>
+    </labels>
+    <labels>
+        <fullName>Search_Button</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search Button</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>Select_Any_Requirement</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Any Requirement</shortDescription>
+        <value>Please select any requirement .</value>
+    </labels>
+    <labels>
+        <fullName>Status</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>Success_Message_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success Message Label</shortDescription>
+        <value>Record Updated Successfully</value>
+    </labels>
+    <labels>
+        <fullName>Tentative_Button_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tentative Button Label</shortDescription>
+        <value>Add as Tentative</value>
+    </labels>
+    <labels>
+        <fullName>Tier1</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tier1</shortDescription>
+        <value>Setup</value>
+    </labels>
+    <labels>
+        <fullName>Tier2</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tier2</shortDescription>
+        <value>Simple Config</value>
+    </labels>
+    <labels>
+        <fullName>Tier3</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tier3</shortDescription>
+        <value>Advance Config</value>
+    </labels>
+    <labels>
+        <fullName>Tier4</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tier4</shortDescription>
+        <value>Custom</value>
+    </labels>
+    <labels>
+        <fullName>Tier_assignment_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tier assignment Label</shortDescription>
+        <value>Listed below are the Functional Area Requirements that have been identified as In-Scope for
+this Implementation.
+
+• For definitions of the Tier assignment, click on the hyperlinked text.
+• To collapse or expand a Tier, click on the chevron icon.
+  •    Click on an information icon to view a User Story for a requirement
+  •    For each Requirement listed, if you agree that it is within the Implementation Scope, click on the button, In-Scope.
+  •    If a Requirement is not needed, click on the button, Not Needed.
+  •    If you have questions about the requirement, click on the button, Feedback.</value>
+    </labels>
+    <labels>
+        <fullName>Total_Contract_Hours</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Total Contract Hours</shortDescription>
+        <value>Total Contract Hours :</value>
+    </labels>
+    <labels>
+        <fullName>Undetermined_Button_Label</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Undetermined Button Label</shortDescription>
+        <value>Add as Undetermined</value>
+    </labels>
+    <labels>
+        <fullName>Unknown</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unknown</shortDescription>
+        <value>UnKnown</value>
+    </labels>
+    <labels>
+        <fullName>User_Profile</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User Profile</shortDescription>
+        <value>Fonteva System Administrator</value>
+    </labels>
+    <labels>
+        <fullName>Welcome_Header</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Welcome Header</shortDescription>
+        <value>WELCOME TO YOUR IMPLEMENTATION PROJECT HOME PAGE!</value>
+    </labels>
+    <labels>
+        <fullName>Welcome_Sub_Header</fullName>
+        <categories>PSP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Welcome Sub Header</shortDescription>
+        <value>Go to Project Scope (for Contact Information),Project Requirements (for deatils on Requirements), Or Issues (for tracking anomolies)</value>
+    </labels>
+</CustomLabels>

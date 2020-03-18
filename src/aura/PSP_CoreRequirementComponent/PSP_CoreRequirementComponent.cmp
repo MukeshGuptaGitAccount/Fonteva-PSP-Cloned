@@ -1,0 +1,135 @@
+<!--Component to Show the Core Requirements Data -->
+
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" Controller="PSP_TierRequirementController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    <aura:attribute name="reqId" type="String" />
+    <aura:attribute name="coreRequirement" type="Test_Case__c"/>
+    <aura:attribute name="editCoreReq" type="boolean" default="true"/>
+    <aura:attribute name="showSpinner" type="boolean" default="false" />
+    <aura:if isTrue="{!or(v.coreRequirement.Publish_Numeric_1_Label__c ,v.coreRequirement.Publish_Numeric_1_Entry__c)}">
+        <div class="slds-grid slds-wrap">
+            <aura:if isTrue="{!v.coreRequirement.Publish_Numeric_1_Label__c}">
+                <div class="slds-size_1-of-2" >
+                    <p style="font-weight: bold"> <ui:outputTextArea  value="{!v.coreRequirement.Numeric_1_Label__c}"/></p>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.coreRequirement.Publish_Numeric_1_Entry__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:inputNumber value="{!v.coreRequirement.Numeric_1_Entry__c}" disabled="{!v.editCoreReq}"/></p>
+                </div>
+            </aura:if>
+        </div>
+    </aura:if>
+    <br/>
+    <aura:if isTrue="{!or(v.coreRequirement.Publish_Numeric_2_Label__c , v.coreRequirement.Publish_Numeric_2_Entry__c)}">
+        <div class="slds-grid slds-wrap">
+            <aura:if isTrue="{!v.coreRequirement.Publish_Numeric_2_Label__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:outputTextArea value="{!v.coreRequirement.Numeric_2_Label__c}" /></p>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.coreRequirement.Publish_Numeric_2_Entry__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:inputNumber value="{!v.coreRequirement.Numeric_2_Entry__c}" disabled="{!v.editCoreReq}"/></p>
+                </div>
+            </aura:if>
+        </div>
+    </aura:if>
+    <br/>
+    <aura:if isTrue="{!or(v.coreRequirement.Publish_Date_1_Label__c ,v.coreRequirement.Publish_Date_1_Entry__c)}">
+        <div class="slds-grid slds-wrap">
+            <aura:if isTrue="{!v.coreRequirement.Publish_Date_1_Label__c}"> 
+                <div class="slds-size_1-of-2">
+                <p style="font-weight: bold"> <ui:outputTextArea value="{!v.coreRequirement.Date_1_Label__c}"/></p>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.coreRequirement.Publish_Date_1_Entry__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:inputDate value="{!v.coreRequirement.Date_1_Entry__c}" displayDatePicker="true" disabled="{!v.editCoreReq}"/></p>
+                </div>
+            </aura:if>
+        </div>
+    </aura:if>
+    <br/>
+    <aura:if isTrue="{!or(v.coreRequirement.Publish_Date_2_Label__c ,v.coreRequirement.Publish_Date_2_Entry__c)}">
+        <div class="slds-grid slds-wrap">
+            <aura:if isTrue="{!v.coreRequirement.Publish_Date_2_Label__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:outputTextArea value="{!v.coreRequirement.Date_2_Label__c}"/></p>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.coreRequirement.Publish_Date_2_Entry__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:inputDate value="{!v.coreRequirement.Date_2_Entry__c}" displayDatePicker="true" disabled="{!v.editCoreReq}"/></p>
+                </div>
+            </aura:if>
+        </div>
+    </aura:if>
+    <br/>
+    <aura:if isTrue="{!or(v.coreRequirement.Publish_Text_1_Label__c ,v.coreRequirement.Publish_Text_1_Entry__c)}">
+        <div class="slds-grid slds-wrap">
+            <aura:if isTrue="{!v.coreRequirement.Publish_Text_1_Label__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:outputTextArea value="{!v.coreRequirement.Text_1_Label__c}"/></p>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.coreRequirement.Publish_Text_1_Entry__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:inputTextArea value="{!v.coreRequirement.Text_1_Entry__c}" disabled="{!v.editCoreReq}"/></p>
+                </div>
+            </aura:if>
+        </div>
+    </aura:if>
+    <br/>
+    <aura:if isTrue="{!or(v.coreRequirement.Publish_Text_2_Label__c ,v.coreRequirement.Publish_Text_2_Entry__c)}">
+        <div class="slds-grid slds-wrap">
+            <aura:if isTrue="{!v.coreRequirement.Publish_Text_2_Label__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:outputTextArea value="{!v.coreRequirement.Text_2_Label__c}" /></p>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.coreRequirement.Publish_Text_2_Entry__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:inputTextArea value="{!v.coreRequirement.Text_2_Entry__c}" disabled="{!v.editCoreReq}"/></p>
+                </div>
+            </aura:if>
+        </div>
+    </aura:if>
+    <br/>
+    <aura:if isTrue="{!or(v.coreRequirement.Publish_Text_3_Label__c ,v.coreRequirement.Publish_Text_3_Entry__c)}">
+        <div class="slds-grid slds-wrap">
+            <aura:if isTrue="{!v.coreRequirement.Publish_Text_3_Label__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:outputTextArea value="{!v.coreRequirement.Text_3_Label__c}"/></p>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.coreRequirement.Publish_Text_3_Entry__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:inputTextArea value="{!v.coreRequirement.Text_3_Entry__c}" disabled="{!v.editCoreReq}"/></p>
+                </div>
+            </aura:if>
+        </div>
+    </aura:if>
+    <br/>
+    <aura:if isTrue="{!or(v.coreRequirement.Publish_Text_4_Label__c ,v.coreRequirement.Publish_Text_4_Entry__c)}">
+        <div class="slds-grid slds-wrap">
+            <aura:if isTrue="{!v.coreRequirement.Publish_Text_4_Label__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:outputTextArea value="{!v.coreRequirement.Text_4_Label__c}"/></p>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.coreRequirement.Publish_Text_4_Entry__c}">
+                <div class="slds-size_1-of-2">
+                    <p style="font-weight: bold"> <ui:inputTextArea value="{!v.coreRequirement.Text_4_Entry__c}" disabled="{!v.editCoreReq}"/></p>
+                </div>
+            </aura:if>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.showSpinner}">
+        <c:PSP_Spinner></c:PSP_Spinner>
+    </aura:if> 
+    <div class="slds-align_absolute-center  ">
+        <lightning:button class="slds-m-horizontal_x-small" variant="Neutral" label="{!$Label.c.Edit_Button}" title="Back" onclick="{!c.editFunction}"/>
+        <lightning:button class="slds-m-horizontal_x-small" variant="Neutral" label="{!$Label.c.Save_Button}" aura:id="saveAndClose" title="Save" onclick="{!c.saveFunction}" disabled="{!v.editCoreReq}"/>
+    </div>
+</aura:component>

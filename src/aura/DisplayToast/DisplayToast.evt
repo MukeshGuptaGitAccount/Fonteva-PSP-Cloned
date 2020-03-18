@@ -1,0 +1,1 @@
+<aura:event type="Component" description="Display toast after update the record" />

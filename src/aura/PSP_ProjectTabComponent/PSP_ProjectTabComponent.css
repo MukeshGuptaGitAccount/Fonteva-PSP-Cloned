@@ -1,0 +1,16 @@
+.THIS {
+}
+.THIS .divSize {
+   /* height:100px;*/
+    width:45%; 
+    background-color: #FFFFFF;
+    font-size: 15px;
+   /* margin: 20px;*/
+}
+.THIS .myBtn  {
+    width: auto;
+}
+.THIS .mytab 
+{
+font-weight :bold !important;
+}
